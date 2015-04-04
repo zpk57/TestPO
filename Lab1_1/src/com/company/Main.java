@@ -1,78 +1,80 @@
 package com.company;
 
 public class Main {
+    private static double epsilon = 0.0001;
 
-    public static void main(String[] args)
+    public static void AssertME(double val1, double val2)
     {
-        double xArg = 1.57;
-        Secans SecansInst = new Secans();
-        System.out.println("MySecans, X= " + xArg + "\nResult = " + SecansInst.SecansCalculate(xArg));
-        System.out.println("RealSecans, X= " + xArg + "\nResult = " + (1.0/Math.cos(xArg)));
-
-//        System.out.println("Hello World!");
-    }
-}
-
-class Secans
-{
-    private long N = 12;
-
-    public Double СalculateEuler(long eulerNumber, boolean flag)
-    {
-        if (eulerNumber == 0) return 1.0;
-        if (flag)
+        if (val1 >= val2)
         {
-            if (eulerNumber%2 == 1) return 0.0;
-            eulerNumber /= 2;
-        }
-        double res=0;
-        for (long j = 0; j <= eulerNumber-1; j++)
-        {
-            res += BinominalNewtonFactor(2 * eulerNumber, 2 * j) * СalculateEuler(j, false);
-        }
-        return -res;
-    }
-
-    //it's better to use iterative version...
-    //but nobody cares
-    long fact(long x)
-    {
-        if (x <= 1)
-        {
-            return 1;
+            System.out.println("passed");
         }
         else
         {
-            return x * fact(x-1);
+            System.out.println("not passed");
         }
     }
 
-
-    public Double BinominalNewtonFactor(long n, long k)
+    public static void Assert(double val1, double val2)
     {
-        return 1.0 * fact(n)/fact(k)/fact(n-k);
-    }
-
-    double SecansCalculate(double arg)
-    {
-        /*
-        double r = 1;
-        for(long n=1; n < N; n++)
+        if(Double.isNaN(val1))
         {
-            r += Math.abs(СalculateEuler(2*n, true))/fact(2*n) * Math.pow(arg, 2*n);
+            if (Double.isNaN(val1))
+            {
+                System.out.println("passed");
+            }
+            else
+            {
+                System.out.println("not passed");
+            }
         }
-        return r;
-        */
-        return (1.0/CosCalculate(arg));
+        else
+        {
+            if (Math.abs(val1 - val2) < epsilon)
+            {
+                System.out.println("passed");
+            }
+            else
+            {
+                System.out.println("not passed");
+            }
+        }
     }
 
-    double CosCalculate(double arg)
+    public static double NativeSec(double arg)
     {
-        double r = 0;
-        for(long n=0; n<N; n++)
-        {
-            r += Math.pow(-1,n)* Math.pow(arg,2*n)/fact(2*n);
-        }
-        return r;
+        return 1/Math.cos(arg);
+    }
+
+    public static void main(String[] args)
+    {
+        double xArg;
+        Secans SecansInst = new Secans();
+
+        //Граничное тестирование
+        //sec(0) = 1;
+        Assert(SecansInst.SecansCalculate(0.0), 1.0);
+        //sec(x) = NaN, if x > Pi/2 or x < Pi/2
+        Assert(SecansInst.SecansCalculate(1.5708),  Double.NaN);
+        Assert(SecansInst.SecansCalculate(-1.5708), Double.NaN);
+
+        //классы эквивалентности
+        //X belongs to [MIN_INTERVAL; MAX_INTERVAL], sec(x) >= 1
+        AssertME(SecansInst.SecansCalculate(-1.5707), 1);
+        AssertME(SecansInst.SecansCalculate(1.5707), 1);
+        AssertME(SecansInst.SecansCalculate(0), 1);
+        //X not belongs to [MIN_INTERVAL; MAX_INTERVAL], sec(x) = NAN
+        Assert(SecansInst.SecansCalculate(1.6),  Double.NaN);
+        Assert(SecansInst.SecansCalculate(-1.6), Double.NaN);
+
+        //таблица значений, сравнение с эталоном
+        //if X belongs to [MIN_INTERVAL; MAX_INTERVAL], TestSec(x) ~~ NativeSec(x)
+        Assert(SecansInst.SecansCalculate(-1.5707), NativeSec(-1.5707));
+        Assert(SecansInst.SecansCalculate(-0.9), NativeSec(-0.9));
+        Assert(SecansInst.SecansCalculate(-0.2), NativeSec(-0.2));
+        Assert(SecansInst.SecansCalculate(0.0), NativeSec(0.0));
+        Assert(SecansInst.SecansCalculate(0.2), NativeSec(0.2));
+        Assert(SecansInst.SecansCalculate(0.9), NativeSec(0.9));
+        Assert(SecansInst.SecansCalculate(1.5707), NativeSec(1.5707));
     }
 }
