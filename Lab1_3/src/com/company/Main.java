@@ -3,7 +3,22 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+        Ford FordInst = new Ford();
+        Article ArticleInst = new Article();
+        Computer ComputerInst = new Computer();
+        try {
+            ComputerInst.StandOn();
+            FordInst.tryToSleep();
+            FordInst.UseComputer(ComputerInst);
+            FordInst.TryToCreateArticle(ArticleInst);
+            FordInst.RefuseCreateArticle(ArticleInst);
+            FordInst.DressRobe();
+            FordInst.GoToBridge();
+        } catch (IllegalStateException e)
+        {
+            System.out.println("not passed" + e.getMessage());
+        }
+
     }
 }
 
@@ -92,7 +107,7 @@ class Ford
         }
     }
 
-    void dressRobe () //robe ?= халат ?
+    void DressRobe () //robe ?= халат ?
     {
         if(currentWorkInst == currentState.REFUSE_TO_CREATE_ARTICLE &&
                 (fordLocation == Location.location.CABIN_CORNER || fordLocation == Location.location.CABIN_NOT_CORNER)) {
