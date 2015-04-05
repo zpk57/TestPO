@@ -11,10 +11,7 @@ public class Main {
 //Разменять на тысячу других
 class Ford
 {
-//    boolean isSleep = false;
-//    boolean isRefusedToSleep = false;
-//    boolean isDressedInRobe = false;
-//    boolean isUsingComputerNow = false;
+    Location.location fordLocation = Location.location.CABIN_NOT_CORNER;
 
     int tryToSleepCount = 0;
 
@@ -26,10 +23,14 @@ class Ford
     void tryToSleep()
     {
         if((currentWorkInst == currentState.NOTHING)) {
-            tryToSleepCount++;
+            if(fordLocation != Location.location.BRIDGE) {
+                tryToSleepCount++;
 
-            if (tryToSleepCount >= 1) {
-                currentWorkInst = currentState.REFUSE_TO_SLEEP;
+                if (tryToSleepCount >= 1) {
+                    currentWorkInst = currentState.REFUSE_TO_SLEEP;
+                }
+            }else {
+                throw new IllegalStateException("can not try to sleep");
             }
         }
         else {
@@ -42,10 +43,15 @@ class Ford
     void UseComputer(Computer ComputerInstance){
         if(currentWorkInst == currentState.REFUSE_TO_SLEEP)
         {
-            if(ComputerInstance.isSmall) {
-                currentWorkInst = currentState.COMUTER_WORK;
+            if(fordLocation != Location.location.BRIDGE) {
+                if (ComputerInstance.isSmall && ComputerInstance.currLocation == Location.location.CABIN_CORNER) {
+                    currentWorkInst = currentState.COMUTER_WORK;
+                    fordLocation = ComputerInstance.currLocation;
+                } else {
+                    throw new IllegalStateException("illegal computer parameters");
+                }
             }else {
-                throw new IllegalStateException("illegal computer parameters");
+                throw new IllegalStateException("can not use computer");
             }
         } else {
             throw new IllegalStateException("can not use computer");
@@ -54,7 +60,7 @@ class Ford
 
     void TryToCreateArticle(Article ArticleInst)
     {
-        if(currentWorkInst == currentState.COMUTER_WORK){
+        if(currentWorkInst == currentState.COMUTER_WORK && fordLocation == Location.location.CABIN_CORNER){
             if(ArticleInst.articleIsCrated) {
                 throw new IllegalStateException("article is already created");
             }else {
@@ -71,7 +77,7 @@ class Ford
 
     void RefuseCreateArticle(Article ArticleInst)
     {
-        if(currentWorkInst == currentState.CREATE_ARTICLE){
+        if(currentWorkInst == currentState.CREATE_ARTICLE && fordLocation == Location.location.CABIN_CORNER){
             if(ArticleInst.articleIsCrated) {
                 throw new IllegalStateException("article is already created");
             }else {
@@ -86,18 +92,19 @@ class Ford
         }
     }
 
-    void dress (Robe RobeInst) //robe ?= халат ?
+    void dressRobe () //robe ?= халат ?
     {
-        if(currentWorkInst == currentState.REFUSE_TO_CREATE_ARTICLE) {
+        if(currentWorkInst == currentState.REFUSE_TO_CREATE_ARTICLE &&
+                (fordLocation == Location.location.CABIN_CORNER || fordLocation == Location.location.CABIN_NOT_CORNER)) {
             currentWorkInst = currentState.WEAR_ROBE;
         }else {
-            throw new IllegalStateException("already wear robe");
+            throw new IllegalStateException("can not dress robe");
         }
     }
 
     void GoToBridge()
     {
-        if(currentWorkInst == currentState.WEAR_ROBE) {
+        if(currentWorkInst == currentState.WEAR_ROBE && fordLocation != Location.location.BRIDGE) {
             currentWorkInst = currentState.GOTO_BRIDGE;
         } else {
             throw new IllegalStateException("can not go to bridge");
@@ -105,9 +112,9 @@ class Ford
     }
 }
 
-class Robe
+class Location
 {
-
+    enum location {CABIN_NOT_CORNER, CABIN_CORNER, BRIDGE};
 }
 
 class  Article
@@ -119,6 +126,8 @@ class  Article
 
 class Computer
 {
+    Location.location currLocation = Location.location.CABIN_CORNER;
+
     public boolean isSmall = true;
 
     boolean isStandOn;
@@ -126,7 +135,11 @@ class Computer
     void StandOn()
     {
         if(isSmall) {
-            isStandOn = true;
+            if(currLocation == Location.location.CABIN_CORNER) {
+                isStandOn = true;
+            }else {
+                throw new IllegalStateException("computer is not in corner of cabin");
+            }
         } else {
             throw new IllegalStateException("computer is not small");
         }
