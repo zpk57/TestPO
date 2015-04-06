@@ -4,8 +4,8 @@ public class Main {
 
     public static void main(String[] args) {
         Ford FordInst = new Ford();
-        Article ArticleInst = new Article();
-        Computer ComputerInst = new Computer();
+        Article ArticleInst = new Article(true);
+        Computer ComputerInst = new Computer(true, Location.location.CABIN_CORNER);
         try {
             ComputerInst.StandOn();
             FordInst.tryToSleep();
@@ -37,7 +37,7 @@ class Ford
 
     void tryToSleep()
     {
-        if((currentWorkInst == currentState.NOTHING)) {
+        if((currentWorkInst != currentState.REFUSE_TO_SLEEP)) {
             if(fordLocation != Location.location.BRIDGE) {
                 tryToSleepCount++;
 
@@ -51,8 +51,6 @@ class Ford
         else {
             throw new IllegalStateException("can not try to sleep");
         }
-
-        //TODO: check location
     }
 
     void UseComputer(Computer ComputerInstance){
@@ -79,7 +77,7 @@ class Ford
             if(ArticleInst.articleIsCrated) {
                 throw new IllegalStateException("article is already created");
             }else {
-                if(ArticleInst.isSarcasticAndCutting && ArticleInst.nameOfMagazine.equals("PUTEVODITEL")) {
+                if(ArticleInst.isSarcasticAndCutting && ArticleInst.aboutWagons && ArticleInst.nameOfMagazine.equals("PUTEVODITEL")) {
                     currentWorkInst = currentState.CREATE_ARTICLE;
                 }else {
                     throw new IllegalStateException("illegal article parameters");
@@ -96,7 +94,7 @@ class Ford
             if(ArticleInst.articleIsCrated) {
                 throw new IllegalStateException("article is already created");
             }else {
-                if(ArticleInst.isSarcasticAndCutting && ArticleInst.nameOfMagazine.equals("PUTEVODITEL")) {
+                if(ArticleInst.isSarcasticAndCutting && ArticleInst.aboutWagons && ArticleInst.nameOfMagazine.equals("PUTEVODITEL")) {
                     currentWorkInst = currentState.REFUSE_TO_CREATE_ARTICLE;
                 }else {
                     throw new IllegalStateException("illegal article parameters");
@@ -136,17 +134,26 @@ class  Article
 {
     public boolean articleIsCrated = false;
     public boolean isSarcasticAndCutting = true; //edkaia
+    public boolean aboutWagons;
     String nameOfMagazine = "PUTEVODITEL";
+    Article(boolean aboutWagons) {
+        this.aboutWagons = aboutWagons;
+    }
 }
 
 class Computer
 {
-    Location.location currLocation = Location.location.CABIN_CORNER;
+    Location.location currLocation;
 
-    public boolean isSmall = true;
+    public boolean isSmall;
 
     boolean isStandOn;
 
+    Computer(boolean isSmall, Location.location currLocation)
+    {
+        this.isSmall = isSmall;
+        this.currLocation = currLocation;
+    }
     void StandOn()
     {
         if(isSmall) {
