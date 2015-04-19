@@ -22,7 +22,8 @@ public class Main {
             serv.start();
             red.setUp();
             red.testYandex();
-            Thread.sleep(10000);
+            red.assertImpl();
+            Thread.sleep(100000);
             red.tearDown();
             serv.stop();
         }

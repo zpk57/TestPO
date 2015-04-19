@@ -17,14 +17,26 @@ public class yandex {
 
 	@Test
 	public void testYandex() throws Exception {
-
 		selenium.open("/");
-		selenium.click("//html/body/div[2]/div[2]/div[2]/div[2]/form/table/tbody/tr/td[1]/span/span[1]/input");
-		selenium.type("//html/body/div[2]/div[2]/div[2]/div[2]/form/table/tbody/tr/td[1]/span/span[1]/input", "ололо");
+		selenium.click("id=text");
+		selenium.type("id=text", "ололо");
 		selenium.click("//button[@type='submit']");
 		selenium.waitForPageToLoad("30000");
 		selenium.click("link=Смотрите картинки по запросу «ололо»");
-		//assertTrue("WTF OLOLO", selenium.is);
+		selenium.selectWindow("ололо: 32 тыс изображений найдено в Яндекс.Картинках");
+		System.out.println(selenium.getTitle());
+	}
+
+	public boolean assertImpl() {
+		try
+		{
+		}
+		catch (Exception e)
+		{
+			System.out.print("Exception in element\n");
+			return false;
+		}
+		return true;
 	}
 
 	@After
