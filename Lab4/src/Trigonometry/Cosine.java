@@ -5,10 +5,17 @@
 package Trigonometry;
 // cos()
 
+import Fake.FakeSettings;
+
 public class Cosine
 {
     private long N = 14;
     private double xMaxValue = 1.5707;
+    boolean fake;
+    public Cosine()
+    {
+        fake = FakeSettings.fakeCosecant;
+    }
 
     private long fact(long x)
     {

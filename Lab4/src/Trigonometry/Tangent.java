@@ -4,18 +4,24 @@
 package Trigonometry;
 // tan()
 
+import Fake.FakeSettings;
+
 public class Tangent extends Cosine {
+    boolean fake;
+    public Tangent()
+    {
+        fake = FakeSettings.fakeCosecant;
+    }
     public double Calc(double arg)
     {
-        double r1 = super.Calc(Math.PI/2 - arg);
-        double r2 = super.Calc(arg);
-        if(Double.isNaN(r1) || Double.isNaN(r2))
+        double r = super.Calc(arg);
+        if(Double.isNaN(r))
         {
             return Double.NaN;
         }
         else
         {
-            return r1/r2; //sin(x)/cos(x)=cos(pi/2-x)/cos(x)
+            return Math.sqrt(1-r*r)/r; //sin(x)/cos(x)=sqrt(1-cos(x)^2)/cos(x)
         }
     }
 }

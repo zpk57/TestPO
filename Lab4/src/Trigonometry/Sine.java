@@ -2,18 +2,26 @@
  * Created by Petr on 17.05.2015.
  */
 package Trigonometry;
+
+import Fake.FakeSettings;
+
 // sin()
 public class Sine extends Cosine{
+    boolean fake;
+    public Sine()
+    {
+        fake = FakeSettings.fakeCosecant;
+    }
     public double Calc(double arg)
     {
-        double r = super.Calc(Math.PI/2 - arg);
+        double r = super.Calc(arg);
         if(Double.isNaN(r))
         {
             return Double.NaN;
         }
         else
         {
-            return r; // //cos(pi/2-x)
+            return Math.sqrt(1-r*r); // sqrt(1-cos(x)^2)
         }
     }
 }

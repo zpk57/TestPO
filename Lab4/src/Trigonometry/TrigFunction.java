@@ -3,6 +3,8 @@
  */
 package Trigonometry;
 
+import Fake.FakeSettings;
+
 public class TrigFunction {
     Cosine cos;
     Sine sin;
@@ -10,6 +12,7 @@ public class TrigFunction {
     Cotangent cot;
     Secant sec;
     Cosecant csc;
+    boolean fake;
     public TrigFunction()
     {
         cos = new Cosine();
@@ -18,6 +21,7 @@ public class TrigFunction {
         cot = new Cotangent();
         sec = new Secant();
         csc = new Cosecant();
+        fake = FakeSettings.fakeCosecant;
     }
 
     public double Calc(double x)

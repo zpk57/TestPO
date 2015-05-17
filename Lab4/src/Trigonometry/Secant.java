@@ -2,8 +2,16 @@
  * Created by Petr on 17.05.2015.
  */
 package Trigonometry;
+
+import Fake.FakeSettings;
+
 // sec()
 public class Secant extends Cosine{
+    boolean fake;
+    public Secant()
+    {
+        fake = FakeSettings.fakeCosecant;
+    }
     public double Calc(double arg)
     {
         double r = super.Calc(arg);
