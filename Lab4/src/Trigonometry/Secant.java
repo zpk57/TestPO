@@ -6,6 +6,14 @@ package Trigonometry;
 public class Secant extends Cosine{
     public double Calc(double arg)
     {
-        return (double)1/super.Calc(arg); // 1/cos(x)
+        double r = super.Calc(arg);
+        if(Double.isNaN(r))
+        {
+            return Double.NaN;
+        }
+        else
+        {
+            return (double)1/r; // 1/cos(x)
+        }
     }
 }

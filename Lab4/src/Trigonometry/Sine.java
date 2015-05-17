@@ -6,6 +6,14 @@ package Trigonometry;
 public class Sine extends Cosine{
     public double Calc(double arg)
     {
-        return super.Calc(Math.PI/2 - arg); //cos(pi/2-x)
+        double r = super.Calc(Math.PI/2 - arg);
+        if(Double.isNaN(r))
+        {
+            return Double.NaN;
+        }
+        else
+        {
+            return r; // //cos(pi/2-x)
+        }
     }
 }

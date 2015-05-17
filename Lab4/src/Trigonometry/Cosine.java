@@ -22,20 +22,20 @@ public class Cosine
         }
     }
 
-
-/*    public Double BinominalNewtonFactor(long n, long k)
-    {
-        return 1.0 * fact(n)/fact(k)/fact(n-k);
-    }*/
-
-
     public double Calc(double arg)
     {
-        double r = 0;
-        for(long n=0; n<N; n++)
+        if(Math.abs(arg) > xMaxValue)
         {
-            r += Math.pow(-1,n)* Math.pow(arg,2*n)/fact(2*n);
+            return Double.NaN;
         }
-        return r;
+        else
+        {
+            double r = 0;
+            for(long n=0; n<N; n++)
+            {
+                r += Math.pow(-1,n)* Math.pow(arg,2*n)/fact(2*n);
+            }
+            return r;
+        }
     }
 }

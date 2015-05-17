@@ -6,6 +6,14 @@ package Trigonometry;
 public class Cosecant extends Cosine{
     public double Calc(double arg)
     {
-        return (double)1/super.Calc(Math.PI/2 - arg); // 1/sin(x)=1/cos(pi/2-x)
+        double r = super.Calc(Math.PI/2 - arg);
+        if(Double.isNaN(r))
+        {
+            return Double.NaN;
+        }
+        else
+        {
+            return (double)1/r; // 1/sin(x)=1/cos(pi/2-x)
+        }
     }
 }

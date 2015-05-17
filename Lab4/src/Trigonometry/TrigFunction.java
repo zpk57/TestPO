@@ -3,14 +3,14 @@
  */
 package Trigonometry;
 
-public class Function {
+public class TrigFunction {
     Cosine cos;
     Sine sin;
     Tangent tan;
     Cotangent cot;
     Secant sec;
     Cosecant csc;
-    public Function()
+    public TrigFunction()
     {
         cos = new Cosine();
         sin = new Sine();
