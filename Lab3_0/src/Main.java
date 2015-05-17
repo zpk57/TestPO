@@ -5,18 +5,24 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.server.RemoteControlConfiguration;
 import org.openqa.selenium.server.SeleniumServer;
+import java.io.*;
 
 
 public class Main {
 
     public static String browser = "*firefox G:\\firefox\\firefox.exe";
-    //public static String browser = "*chrome C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe";
+    //public static String browser = "*googlechrome C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe";
 
     public static void main(String[] args) {
         SeleniumServer serv;
-        RemoteControlConfiguration rc;
+        RemoteControlConfiguration rc, rcDown;
         System.out.println("passed");
         rc = new RemoteControlConfiguration();
+        //rcDown = new RemoteControlConfiguration();
+        File file = new File("C:\\profile");
+        //rcDown.setFirefoxProfileTemplate(file);
+
+
         try
         {
             serv = new SeleniumServer(rc);
@@ -28,17 +34,37 @@ public class Main {
         }
         System.out.println("Server started");
 
+        UpLoad upload = new UpLoad();
+        upload.runTest();
+
+        Create create = new Create();
+        create.runTest();
+
         Login log = new Login();
         log.runTest();
-        Find find = new Find();
-        find.runTest();
         Logout logout = new Logout();
         logout.runTest();
+        Find find = new Find();
+        find.runTest();
         Find2 find2 = new Find2();
         find2.runTest();
         Download download = new Download();
         download.runTest();
         serv.stop();
+
+/*
+        try
+        {
+            serv = new SeleniumServer(rcDown);
+            serv.start();
+        } catch (Exception e)
+        {
+            System.out.println("Error on server start; abort");
+            return;
+        }
+        Download download = new Download();
+        download.runTest();
+        serv.stop();*/
     }
 
     public static void login(Selenium selenium) throws Exception
