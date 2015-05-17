@@ -1,25 +1,25 @@
 package Logarithm;
 
-import Sources.FakeSettings;
+import Sources.*;
 
-public class MainLogarithm
+public class MainLogarithm implements CalculationIface
 {
     private NaturalLogarithm NaturalLogarithmInst;
     private int base;
 /*    private FileWriter writer;*/
     boolean fake;
-    MainLogarithm(/*FileWriter writer, */int base)
+    public MainLogarithm(/*FileWriter writer, */int base)
     {
         NaturalLogarithmInst = new NaturalLogarithm();
         this.base = base;
         fake = FakeSettings.fakeCosecant;
     }
-    public double LogBase(double arg)
+    public double Calc(double arg)
     {
         double result;
         if((base == 2) || (base == 3) || (base == 5) || (base == 10))
         {
-            result = NaturalLogarithmInst.ln(arg) / NaturalLogarithmInst.ln(base);
+            result = NaturalLogarithmInst.Calc(arg) / NaturalLogarithmInst.Calc(base);
         }
         else
         {

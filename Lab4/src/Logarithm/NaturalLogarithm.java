@@ -2,9 +2,10 @@
 package Logarithm;
 
 
+import Sources.CalculationIface;
 import Sources.FakeSettings;
 
-public class NaturalLogarithm
+public class NaturalLogarithm implements CalculationIface
 {
     private long N = 45;
     private static final double MAX_ARG = 3;
@@ -16,7 +17,7 @@ public class NaturalLogarithm
     {
         fake = FakeSettings.fakeCosecant;
     }
-    public double ln(double arg)
+    public double Calc(double arg)
     {
         double result;
         if((arg >= MIN_ARG) && (arg <= MAX_ARG))

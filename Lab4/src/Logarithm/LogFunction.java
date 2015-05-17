@@ -1,8 +1,9 @@
 package Logarithm;
 
+import Sources.CalculationIface;
 import Sources.FakeSettings;
 
-public class LogFunction {
+public class LogFunction implements CalculationIface {
     NaturalLogarithm Ln;
     MainLogarithm Log2;
     MainLogarithm Log3;
@@ -22,6 +23,6 @@ public class LogFunction {
     public double Calc(double x)
     {
         //(((((log_3(x) / ln(x)) / log_3(x)) + log_10(x)) + log_5(x)) + (log_3(x) * ((log_5(x) / log_2(x)) / log_10(x))));
-        return (((((Log3.LogBase(x) / Ln.ln(x)) / Log3.LogBase(x)) + Log10.LogBase(x)) + Log5.LogBase(x)) + (Log3.LogBase(x) * ((Log5.LogBase(x) / Log2.LogBase(x)) / Log10.LogBase(x))));
+        return (((((Log3.Calc(x) / Ln.Calc(x)) / Log3.Calc(x)) + Log10.Calc(x)) + Log5.Calc(x)) + (Log3.Calc(x) * ((Log5.Calc(x) / Log2.Calc(x)) / Log10.Calc(x))));
     }
 }

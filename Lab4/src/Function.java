@@ -1,10 +1,11 @@
 /**
  * Created by Petr on 17.05.2015.
  */
+import Sources.CalculationIface;
 import Sources.FakeSettings;
 import Trigonometry.*;
 import Logarithm.*;
-public class Function {
+public class Function  implements CalculationIface {
     TrigFunction trigF;
     LogFunction logF;
     boolean fake;

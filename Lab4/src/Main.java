@@ -1,5 +1,5 @@
-import Sources.CalculationIface;
-import Sources.FakeSettings;
+import Logarithm.*;
+import Sources.*;
 import Trigonometry.*;
 
 import java.io.PrintWriter;
@@ -73,6 +73,12 @@ public class Main
         runCSVWriter(writer, "Sine", new Sine(), step, 0, 1.5707);
         runCSVWriter(writer, "Tangent", new Tangent(), step, 0, 1.5707);
         runCSVWriter(writer, "TrigFunction", new TrigFunction(), step, 0, 1.5707);
+
+        runCSVWriter(writer, "NaturalLogarithm_2", new NaturalLogarithm(), step, 2, 3);
+        runCSVWriter(writer, "MainLogarithm", new MainLogarithm(2), step, 2, 3);
+        runCSVWriter(writer, "LogFunction", new LogFunction(), step, 2, 3);
+
+        runCSVWriter(writer, "MainFunction", new Function(), step, 0, 3);
     }
 
     public static void main(String[] args)
