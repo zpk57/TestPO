@@ -46,6 +46,59 @@ public class Main
             func = new Function();
             SystemTest.testSystem(func, "With real trig and log function: ");
         }
+        {
+            FakeSettings.fakeMainLogarithm = false;
+            func = new Function();
+            SystemTest.testSystem(func, "With real main logarithm: ");
+        }
+        {
+            FakeSettings.fakeNaturalLogarithm = false;
+            func = new Function();
+            SystemTest.testSystem(func, "With real natural logarithm: ");
+        }
+        {
+            FakeSettings.fakeCosecant = false;
+            func = new Function();
+            SystemTest.testSystem(func, "With real Cosecant: ");
+        }
+        {
+            FakeSettings.fakeCosecant = true;
+            FakeSettings.fakeCotangent = false;
+            func = new Function();
+            SystemTest.testSystem(func, "With real Cotangent: ");
+        }
+        {
+            FakeSettings.fakeCotangent = true;
+            FakeSettings.fakeSecant = false;
+            func = new Function();
+            SystemTest.testSystem(func, "With real Secant: ");
+        }
+        {
+            FakeSettings.fakeSecant = true;
+            FakeSettings.fakeSine = false;
+            func = new Function();
+            SystemTest.testSystem(func, "With real Sine: ");
+        }
+        {
+            FakeSettings.fakeSine = true;
+            FakeSettings.fakeTangent = false;
+            func = new Function();
+            SystemTest.testSystem(func, "With real Tangent: ");
+        }
+        {
+            FakeSettings.fakeCosecant = false;
+            FakeSettings.fakeCotangent = false;
+            FakeSettings.fakeSecant = false;
+            FakeSettings.fakeSine = false;
+            FakeSettings.fakeTangent = false;
+            func = new Function();
+            SystemTest.testSystem(func, "With all not-base trigonometry: ");
+        }
+        {
+            FakeSettings.fakeBaseTrigonometry = false;
+            func = new Function();
+            SystemTest.testSystem(func, "All real: ");
+        }
     }
 
     private static void runCSVWriter(PrintWriter writer, String header, CalculationIface cos, double step, double start, double end)
@@ -79,6 +132,8 @@ public class Main
         runCSVWriter(writer, "LogFunction", new LogFunction(), step, 2, 3);
 
         runCSVWriter(writer, "MainFunction", new Function(), step, 0, 3);
+
+        writer.close();
     }
 
     public static void main(String[] args)
