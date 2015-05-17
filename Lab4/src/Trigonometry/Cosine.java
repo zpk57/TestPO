@@ -31,7 +31,7 @@ public class Cosine implements CalculationIface
 
     public double Calc(double arg)
     {
-        if(Math.abs(arg) > xMaxValue)
+        if(arg > xMaxValue || arg < 0)
         {
             return Double.NaN;
         }
