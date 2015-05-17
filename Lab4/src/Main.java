@@ -1,3 +1,4 @@
+import Trigonometry.*;
 
 public class Main {
     private static double epsilon = 0.0001;
@@ -48,10 +49,10 @@ public class Main {
     public static void main(String[] args)
     {
         double xArg;
-        Cosinus SecansInst = new Cosinus();
+        Cosine SecansInst = new Cosine();
 
         //Граничное тестирование
         //sec(0) = 1;
-        Assert(SecansInst.CosCalculate(0.0), 1.0);
+        Assert(SecansInst.Calc(0.0), 1.0);
     }
 }

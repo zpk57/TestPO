@@ -1,14 +1,16 @@
-
-
 /**
  * Created by Palmyr on 04.04.2015.
  */
-public class Cosinus
+
+package Trigonometry;
+// cos()
+
+public class Cosine
 {
     private long N = 14;
     private double xMaxValue = 1.5707;
 
-    long fact(long x)
+    private long fact(long x)
     {
         if (x <= 1)
         {
@@ -27,7 +29,7 @@ public class Cosinus
     }*/
 
 
-    double CosCalculate(double arg)
+    public double Calc(double arg)
     {
         double r = 0;
         for(long n=0; n<N; n++)
