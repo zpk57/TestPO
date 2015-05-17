@@ -33,7 +33,7 @@ public class SystemTest extends TestCase
         assertEquals(head+"near border: ", 1.3214e11, func.Calc(1.5706), 1.3214e11*delta);
 
         assertEquals(head+"inside: ", 12.3944, func.Calc(0.5), delta);
-        assertEquals(head+"inside: ", 11.5606, func.Calc(1), delta);
+        assertEquals(head+"inside: ", 11.5605, func.Calc(1), delta);
         assertEquals(head+"inside: ", 59.3231, func.Calc(1.3), delta);
 
         assertTrue(head + "outside: at 1.5708 not NAN", Double.isNaN(func.Calc(1.5708)));

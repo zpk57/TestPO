@@ -29,7 +29,7 @@ public class Cosine implements CalculationIface
         }
     }
 
-    public double Calc(double arg)
+    public double calcFuncCos(double arg)
     {
         if(arg > xMaxValue || arg < 0)
         {
@@ -44,5 +44,29 @@ public class Cosine implements CalculationIface
             }
             return r;
         }
+    }
+
+    public double Calc(double x)
+    {
+        if(this.fake)
+        {
+            return calcFakeCos(x);
+        }
+        else
+        {
+            return calcFuncCos(x);
+        }
+    }
+
+    public double calcFakeCos(double arg)
+    {
+        double result = Double.NaN;
+        if (arg == 1.5707)  result = 0.000009632679475;
+        if (arg == 0.0001)  result = 0.99999995;
+        if (arg == 1.5706)  result = 0.00001963267936;
+        if (arg == 0.5)     result = 0.8775825619;
+        if (arg == 1.0)     result = 0.5403023059;
+        if (arg == 1.3)     result = 0.2674988286;
+        return result;
     }
 }

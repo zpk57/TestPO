@@ -40,42 +40,16 @@ public class LogFunction implements CalculationIface {
 
     private double calcFake(double arg)
     {
-        double result;
-        if((arg == 2.0) || (arg == 3.0))
-        {
-            if (arg == 2.0)
-            {
-                result = 3.07706;
-            }
-            else
-            {
-                result = 2.97262;
-            }
-        }
-        else
-        {
-            if((arg == 2.01) || (arg == 2.98))
-            {
-                if(arg == 2.01) result = 3.07202;
-                else return 2.97114;
-            }
-            else
-            {
-                if((arg == 2.2) || (arg == 2.5) || (arg == 2.8))
-                {
-                    if(arg == 2.2) result = 3.00327;
-                    else
-                    {
-                        if (arg == 2.5) result = 2.96128;
-                        else result = 2.96079;
-                    }
-                }
-                else
-                {
-                    result = Double.NaN;
-                }
-            }
-        }
+        double result = Double.NaN;
+
+        if (arg == 2.0) result = 3.077001;
+        if (arg == 3.0) result = 2.972605;
+        if (arg == 2.01) result = 3.07202;
+        if (arg == 2.98) result = 2.97114;
+        if (arg == 2.2) result = 3.00327;
+        if (arg == 2.5) result = 2.96128;
+        if (arg == 2.8) result = 2.96079;
+
         return result;
     }
 }

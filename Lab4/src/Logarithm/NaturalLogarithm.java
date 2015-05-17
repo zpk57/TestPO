@@ -45,42 +45,14 @@ public class NaturalLogarithm implements CalculationIface
 
     private double calcFake(double arg)
     {
-        double result;
-        if((arg == 2.0) || (arg == 3.0))
-        {
-            if (arg == 2.0)
-            {
-                result = 0.6931471806;
-            }
-            else
-            {
-                result = 1.098612289;
-            }
-        }
-        else
-        {
-            if((arg == 2.01) || (arg == 2.98))
-            {
-                result = Double.NaN;
-            }
-            else
-            {
-                if((arg == 2.2) || (arg == 2.5) || (arg == 2.8))
-                {
-                    if(arg == 2.2) result = 0.7884573604;
-                    else
-                    {
-                        if (arg == 2.5) result = 0.9162907319;
-                        else result = 1.029619417;
-                    }
-
-                }
-                else
-                {
-                    result = Double.NaN;
-                }
-            }
-        }
+        double result = Double.NaN;
+        if (arg == 2.0) result = 0.6931471806;
+        if (arg == 3.0) result = 1.098612289;
+        if (arg == 2.01) result = 0.6981347221;
+        if (arg == 2.98) result = 1.091923301;
+        if (arg == 2.2) result = 0.7884573604;
+        if (arg == 2.5) result = 0.9162907319;
+        if (arg == 2.8) result = 1.029619417;
         return result;
     }
 }

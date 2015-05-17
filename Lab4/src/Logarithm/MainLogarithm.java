@@ -82,165 +82,58 @@ public class MainLogarithm implements CalculationIface
 
     private double calcFake2(double arg)
     {
-        double result;
-        if((arg == 2.0) || (arg == 3.0))
-        {
-            if (arg == 2.0)
-            {
-                result = 1;
-            }
-            else
-            {
-                result = 1.584962501;
-            }
-        }
-        else
-        {
-            if((arg == 2.01) || (arg == 2.98))
-            {
-                result = Double.NaN;
-            }
-            else
-            {
-                if((arg == 2.2) || (arg == 2.5) || (arg == 2.8))
-                {
-                    if(arg == 2.2) result = 1.137503524;
-                    else
-                    {
-                        if (arg == 2.5) result = 1.321928095;
-                        else result = 1.485426827;
-                    }
+        double result = Double.NaN;
 
-                }
-                else
-                {
-                    result = Double.NaN;
-                }
-            }
-        }
+        if (arg == 2.0) result = 1;
+        if (arg == 3.0) result = 1.584962501;
+        if (arg == 2.01) result = 1.007195501;
+        if (arg == 2.98) result = 1.575312331;
+        if (arg == 2.2) result = 1.137503524;
+        if (arg == 2.5) result = 1.321928095;
+        if (arg == 2.) result = 1.485426827;
+
         return result;
     }
 
     private double calcFake3(double arg)
     {
-        double result;
-        if((arg == 2.0) || (arg == 3.0))
-        {
-            if (arg == 2.0)
-            {
-                result = 0.6309297536;
-            }
-            else
-            {
-                result = 1;
-            }
-        }
-        else
-        {
-            if((arg == 2.01) || (arg == 2.98))
-            {
-                result = Double.NaN;
-            }
-            else
-            {
-                if((arg == 2.2) || (arg == 2.5) || (arg == 2.8))
-                {
-                    if(arg == 2.2) result = 0.7176848179;
-                    else
-                    {
-                        if (arg == 2.5) result = 0.8340437671;
-                        else result = 0.937199982;
-                    }
+        double result = Double.NaN;
 
-                }
-                else
-                {
-                    result = Double.NaN;
-                }
-            }
-        }
+        if (arg == 2.0) result = 0.6309297536;
+        if (arg == 3.0) result = 1;
+        if (arg == 2.01) result = 0.6354696095;
+        if (arg == 2.98) result = 0.9939114206;
+        if (arg == 2.2) result = 0.7176848179;
+        if (arg == 2.5) result = 0.8340437671;
+        if (arg == 2.) result = 0.937199982;
         return result;
     }
 
     private double calcFake5(double arg)
     {
-        double result;
-        if((arg == 2.0) || (arg == 3.0))
-        {
-            if (arg == 2.0)
-            {
-                result = 0.4306765581;
-            }
-            else
-            {
-                result = 0.6826061945;
-            }
-        }
-        else
-        {
-            if((arg == 2.01) || (arg == 2.98))
-            {
-                result = Double.NaN;
-            }
-            else
-            {
-                if((arg == 2.2) || (arg == 2.5) || (arg == 2.8))
-                {
-                    if(arg == 2.2) result = 0.4898961024;
-                    else
-                    {
-                        if (arg == 2.5) result = 0.5693234419;
-                        else result = 0.6397385132;
-                    }
+        double result = Double.NaN;
 
-                }
-                else
-                {
-                    result = Double.NaN;
-                }
-            }
-        }
+        if (arg == 2.0) result = 0.4306765581;
+        if (arg == 3.0) result = 0.6826061945;
+        if (arg == 2.01) result = 0.4337754919;
+        if (arg == 2.98) result = 0.6784500925;
+        if (arg == 2.2) result = 0.4898961024;
+        if (arg == 2.5) result = 0.5693234419;
+        if (arg == 2.) result = 0.6397385132;
         return result;
     }
 
     private double calcFake10(double arg)
     {
-        double result;
-        if((arg == 2.0) || (arg == 3.0))
-        {
-            if (arg == 2.0)
-            {
-                result = 0.3010299957;
-            }
-            else
-            {
-                result = 0.4771212547;
-            }
-        }
-        else
-        {
-            if((arg == 2.01) || (arg == 2.98))
-            {
-                result = Double.NaN;
-            }
-            else
-            {
-                if((arg == 2.2) || (arg == 2.5) || (arg == 2.8))
-                {
-                    if(arg == 2.2) result = 0.3424226808;
-                    else
-                    {
-                        if (arg == 2.5) result = 0.3979400087;
-                        else result = 0.4471580313;
-                    }
+        double result = Double.NaN;
 
-                }
-                else
-                {
-                    result = Double.NaN;
-                }
-            }
-        }
+        if (arg == 2.0) result = 0.3010299957;
+        if (arg == 3.0) result = 0.4771212547;
+        if (arg == 2.01) result = 0.3031960574;
+        if (arg == 2.98) result = 0.4742162641;
+        if (arg == 2.2) result = 0.3424226808;
+        if (arg == 2.5) result = 0.3979400087;
+        if (arg == 2.) result = 0.4471580313;
         return result;
     }
 }
