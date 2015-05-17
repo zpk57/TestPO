@@ -106,7 +106,7 @@ public class Main
         writer.println("---" + header + "---");
         for(double x = start; x<=end; x+=step)
         {
-            writer.println(x + ", " + cos.Calc(x));
+            writer.println(x + ", \t\t\t\t" + cos.Calc(x));
         }
     }
 

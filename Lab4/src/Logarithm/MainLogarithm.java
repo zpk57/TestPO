@@ -9,11 +9,6 @@ public class MainLogarithm implements CalculationIface
     private static final double LN5 = 1.609437912;
     private static final double LN10 =2.302585093;
 
-    private static final double LOG10 = 0.39794;
-    private static final double LOG5 = 0.56932344;
-    private static final double LOG3 = 0.8340437;
-    private static final double LOG2 = 1.321928;
-
     private NaturalLogarithm NaturalLogarithmInst;
     private int base;
 /*    private FileWriter writer;*/

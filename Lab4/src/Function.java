@@ -17,7 +17,7 @@ public class Function  implements CalculationIface {
     }
     public double Calc(double x)
     {
-        if(x<=2)
+        if(x < 2)
         {
             return trigF.Calc(x);
         }
@@ -25,5 +25,66 @@ public class Function  implements CalculationIface {
         {
             return logF.Calc(x);
         }
+    }
+
+    private double calcFunc(double x)
+    {
+        if(x < 2)
+        {
+            return trigF.Calc(x);
+        }
+        else
+        {
+            return logF.Calc(x);
+        }
+    }
+
+    private double calcFake(double arg)
+    {
+        double result;
+        if(arg < 2)
+        {
+            result = 0;
+        }
+        else
+        {
+            if((arg == 2.0) || (arg == 3.0))
+            {
+                if (arg == 2.0)
+                {
+                    result = 0.3010299957;
+                }
+                else
+                {
+                    result = 0.4771212547;
+                }
+            }
+            else
+            {
+                if((arg == 2.01) || (arg == 2.98))
+                {
+                    if(arg == 2.01) result = 3.07202;
+                    else return 2.97114;
+                }
+                else
+                {
+                    if((arg == 2.2) || (arg == 2.5) || (arg == 2.8))
+                    {
+                        if(arg == 2.2) result = 0.3424226808;
+                        else
+                        {
+                            if (arg == 2.5) result = 0.3979400087;
+                            else result = 0.4471580313;
+                        }
+
+                    }
+                    else
+                    {
+                        result = Double.NaN;
+                    }
+                }
+            }
+        }
+        return result;
     }
 }

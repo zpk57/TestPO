@@ -56,7 +56,8 @@ public class LogFunction implements CalculationIface {
         {
             if((arg == 2.01) || (arg == 2.98))
             {
-                result = Double.NaN;
+                if(arg == 2.01) result = 3.07202;
+                else return 2.97114;
             }
             else
             {
