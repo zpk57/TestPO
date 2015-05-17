@@ -1,11 +1,14 @@
 package Logarithm;
 
+import Fake.FakeSettings;
+
 public class LogFunction {
     NaturalLogarithm Ln;
     MainLogarithm Log2;
     MainLogarithm Log3;
     MainLogarithm Log5;
     MainLogarithm Log10;
+    boolean fake;
 
     public LogFunction()
     {
@@ -14,6 +17,7 @@ public class LogFunction {
         Log3 = new MainLogarithm(3);
         Log5 = new MainLogarithm(5);
         Log10 = new MainLogarithm(10);
+        fake = FakeSettings.fakeCosecant;
     }
     public double Calc(double x)
     {

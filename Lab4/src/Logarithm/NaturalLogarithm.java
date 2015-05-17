@@ -2,6 +2,8 @@
 package Logarithm;
 
 
+import Fake.FakeSettings;
+
 public class NaturalLogarithm
 {
     private long N = 45;
@@ -9,6 +11,11 @@ public class NaturalLogarithm
     private static final double MIN_ARG = 2;
     private static final double LN2 = 0.6931471806;
     private static final double LN2d5 = 0.9162907319;
+    boolean fake;
+    public NaturalLogarithm()
+    {
+        fake = FakeSettings.fakeCosecant;
+    }
     public double ln(double arg)
     {
         double result;

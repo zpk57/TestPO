@@ -8,8 +8,9 @@ import org.junit.Test;
 
 public class SystemTest extends TestCase
 {
-    public void testSystem(Function func)
+    private final static double delta = 0.0001;
+    public static void testSystem(Function func, String head)
     {
-        assertTrue("", true);
+        assertEquals(head+"", 0, func.Calc(0), delta);
     }
 }
