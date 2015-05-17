@@ -1,4 +1,5 @@
 import Trigonometry.*;
+import Logarithm.*;
 
 public class Main {
     private static double epsilon = 0.0001;
@@ -50,9 +51,12 @@ public class Main {
     {
         double xArg;
         Cosine SecansInst = new Cosine();
+		NaturalLogarithm NaturalLogarithmInst = new NaturalLogarithm();
 
         //Граничное тестирование
         //sec(0) = 1;
         Assert(SecansInst.Calc(0.0), 1.0);
+		//mast fall
+		Assert(NaturalLogarithmInst.ln(2), 2);
     }
 }
