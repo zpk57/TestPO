@@ -22,11 +22,11 @@ public class SystemTest extends TestCase
         assertEquals(head+"inside: ", 2.9612, func.Calc(2.5), delta);
         assertEquals(head+"inside: ", 2.9607, func.Calc(2.8), delta);
 
-        assertEquals(head+"outside: ", Double.NaN, func.Calc(6), delta);
-        assertEquals(head+"outside: ", Double.NaN, func.Calc(4), delta);
+        assertTrue(head+"outside: ", Double.isNaN(func.Calc(6)));
+        assertTrue(head+"outside: ", Double.isNaN(func.Calc(4)));
 
         //________trig_________
-        assertEquals(head+"border: ", Double.NaN, func.Calc(0), delta);
+        assertTrue(head+"border: ", Double.isNaN(func.Calc(0)));
         assertEquals(head+"border: ", 1.1188, func.Calc(1.5707), delta);
 
         assertEquals(head+"near border: ", 2.0001, func.Calc(0.0001), delta);
@@ -36,8 +36,8 @@ public class SystemTest extends TestCase
         assertEquals(head+"inside: ", 11.5606, func.Calc(1), delta);
         assertEquals(head+"inside: ", 59.3231, func.Calc(1.3), delta);
 
-        assertEquals(head+"outside: ", Double.NaN, func.Calc(1.5708), delta);
-        assertEquals(head+"outside: ", Double.NaN, func.Calc(-1), delta);
+        assertTrue(head + "outside: ", Double.isNaN(func.Calc(1.5708)));
+        assertTrue(head + "outside: ", Double.isNaN(func.Calc(-1)));
         System.out.println(head+"done");
     }
 }
