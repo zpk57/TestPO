@@ -1,5 +1,6 @@
 package Tests;
 
+import junit.framework.TestCase;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -7,7 +8,7 @@ import org.junit.Test;
 /**
  * Created by Petr on 17.05.2015.
  */
-public class TrigFunctionTest {
+public class TrigFunctionTest extends TestCase {
     @Before
     protected void setUp() throws Exception
     {
