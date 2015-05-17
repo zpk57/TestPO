@@ -5,9 +5,9 @@
 package Trigonometry;
 // cos()
 
-import Fake.FakeSettings;
+import Sources.*;
 
-public class Cosine
+public class Cosine implements CalculationIface
 {
     private long N = 14;
     private double xMaxValue = 1.5707;

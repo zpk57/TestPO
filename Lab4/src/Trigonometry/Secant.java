@@ -3,7 +3,7 @@
  */
 package Trigonometry;
 
-import Fake.FakeSettings;
+import Sources.FakeSettings;
 
 // sec()
 public class Secant extends Cosine{

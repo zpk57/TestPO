@@ -3,7 +3,7 @@
  */
 package Trigonometry;
 
-import Fake.FakeSettings;
+import Sources.FakeSettings;
 
 // sin()
 public class Sine extends Cosine{

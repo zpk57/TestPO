@@ -3,7 +3,7 @@
  */
 package Trigonometry;
 
-import Fake.FakeSettings;
+import Sources.FakeSettings;
 
 // cot()
 public class Cotangent extends Cosine {

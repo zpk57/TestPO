@@ -3,9 +3,10 @@
  */
 package Trigonometry;
 
-import Fake.FakeSettings;
+import Sources.CalculationIface;
+import Sources.FakeSettings;
 
-public class TrigFunction {
+public class TrigFunction implements CalculationIface {
     Cosine cos;
     Sine sin;
     Tangent tan;

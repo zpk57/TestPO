@@ -2,7 +2,7 @@
  * Created by Petr on 17.05.2015.
  */
 package Trigonometry;
-import Fake.FakeSettings;
+import Sources.FakeSettings;
 
 // csc()
 public class Cosecant extends Cosine{

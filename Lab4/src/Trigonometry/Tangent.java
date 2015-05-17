@@ -4,7 +4,7 @@
 package Trigonometry;
 // tan()
 
-import Fake.FakeSettings;
+import Sources.FakeSettings;
 
 public class Tangent extends Cosine {
     boolean fake;

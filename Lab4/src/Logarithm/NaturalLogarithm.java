@@ -2,7 +2,7 @@
 package Logarithm;
 
 
-import Fake.FakeSettings;
+import Sources.FakeSettings;
 
 public class NaturalLogarithm
 {

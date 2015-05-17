@@ -1,7 +1,7 @@
 /**
  * Created by Petr on 17.05.2015.
  */
-package Fake;
+package Sources;
 public class FakeSettings {
     public static boolean fakeNaturalLogarithm = false;
     public static boolean fakeMainLogarithm = false;

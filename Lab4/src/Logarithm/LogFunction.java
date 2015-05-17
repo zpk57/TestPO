@@ -1,6 +1,6 @@
 package Logarithm;
 
-import Fake.FakeSettings;
+import Sources.FakeSettings;
 
 public class LogFunction {
     NaturalLogarithm Ln;

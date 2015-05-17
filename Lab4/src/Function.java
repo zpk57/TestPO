@@ -1,7 +1,7 @@
 /**
  * Created by Petr on 17.05.2015.
  */
-import Fake.FakeSettings;
+import Sources.FakeSettings;
 import Trigonometry.*;
 import Logarithm.*;
 public class Function {

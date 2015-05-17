@@ -1,6 +1,6 @@
-import Fake.FakeSettings;
-import Trigonometry.Cosine;
-import org.junit.Test;
+import Sources.CalculationIface;
+import Sources.FakeSettings;
+import Trigonometry.*;
 
 import java.io.PrintWriter;
 
@@ -48,9 +48,9 @@ public class Main
         }
     }
 
-    private static void runCSVWriter(PrintWriter writer, String header, Cosine cos, double step, double start, double end)
+    private static void runCSVWriter(PrintWriter writer, String header, CalculationIface cos, double step, double start, double end)
     {
-        writer.println("---"+header+"---");
+        writer.println("---" + header + "---");
         for(double x = start; x<=end; x+=step)
         {
             writer.println(x + ", " + cos.Calc(x));
@@ -66,7 +66,13 @@ public class Main
             System.out.println("Error: can`t open file");
             return;
         }
+        runCSVWriter(writer, "Cosecant", new Cosecant(), step, 0, 1.5707);
         runCSVWriter(writer, "Cosine", new Cosine(), step, 0, 1.5707);
+        runCSVWriter(writer, "Cotangent", new Cotangent(), step, 0, 1.5707);
+        runCSVWriter(writer, "Secant", new Secant(), step, 0, 1.5707);
+        runCSVWriter(writer, "Sine", new Sine(), step, 0, 1.5707);
+        runCSVWriter(writer, "Tangent", new Tangent(), step, 0, 1.5707);
+        runCSVWriter(writer, "TrigFunction", new TrigFunction(), step, 0, 1.5707);
     }
 
     public static void main(String[] args)
