@@ -25,7 +25,8 @@ public class Cosine implements CalculationIface
         }
         else
         {
-            return x * fact(x-1);
+            return 0;
+            //return x * fact(x-1);
         }
     }
 
